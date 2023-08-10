@@ -35,13 +35,10 @@ async def af_root():
 
 
 @app.get('/CreateHash')
-async def af_return_hash(local=False, data: str = Query()):
+async def af_return_hash(user: str = Query(), pwd: str = Query):
     import hashlib
-    sha256_hash = hashlib.sha256(data.encode()).hexdigest()
-    if local:
-        return sha256_hash
-    else:
-        return {'hash': sha256_hash}
+    sha256_hash = hashlib.sha256(f'{user}{pwd}'.encode()).hexdigest()
+    return {'hash': sha256_hash}
 
 
 @app.get('/GetNameOfFiles')
