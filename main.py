@@ -46,7 +46,7 @@ async def af_return_hash(local=False, data: str = Query()):
 
 @app.get('/GetNameOfFiles')
 async def af_get_name_of_files():
-    files = os.listdir('./files/')
+    files = os.listdir()
     return {'files': [files]}
 
 
@@ -55,4 +55,4 @@ async def af_fetch_file(file_name: str = Query(default=None), extension: str = Q
     if file_name is None:
         return {'Error': 'Nome do arquivo não informado'}
     else:
-        return FileResponse(path=f"./files/{file_name}.{extension}", filename=f"{file_name}.{extension}")
+        return FileResponse(path=f"{file_name}.{extension}", filename=f"{file_name}.{extension}")
