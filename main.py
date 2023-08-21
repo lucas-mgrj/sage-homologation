@@ -47,6 +47,12 @@ async def af_get_name_of_files():
     return {'files': [files]}
 
 
+@app.get('/GetOneFile')
+async def af_get_one_file():
+    files = os.listdir()
+    return {'file': files[randint(0, len(files)-1)]}
+
+
 @app.get('/FetchFile')
 async def af_fetch_file(file_name: str = Query(default=None), extension: str = Query(default='pdf')):
     if file_name is None:
