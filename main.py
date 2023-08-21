@@ -13,6 +13,7 @@
 #     — Existem dois modos de envio, teste e produção.
 # ------------------------------------------------------------------------------
 import os
+from random import randint
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
