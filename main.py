@@ -50,7 +50,8 @@ async def af_get_name_of_files():
 @app.get('/GetOneFile')
 async def af_get_one_file():
     files = os.listdir()
-    return {'file': files[randint(0, len(files)-1)]}
+    file = files[randint(0, len(files)-1)]
+    return {'file': file}
 
 
 @app.get('/FetchFile')
